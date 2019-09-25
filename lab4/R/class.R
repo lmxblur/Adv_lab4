@@ -5,8 +5,8 @@ linreg <- function(formula,data){
                          ),
                          methods = list(
                            initialize = function(formula,data){
-                             X <<- model.matrix(formula)
-                             y <<- all.vars(formula)
+                             X <<- data[all.vars(formula)[1]]
+                             y <<- data[all.vars(formula)[2]]
                              beta <<- solve(t(X)%*%X)%*%t(X)%*%y
                              y_fit <<- X%*%beta
                              e <<- y-X%*%beta
