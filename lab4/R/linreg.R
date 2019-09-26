@@ -10,8 +10,7 @@ linreg <- setRefClass("linreg",
                                       e_hat="matrix",
                                       df="numeric",
                                       s2_hat="numeric",
-                                      var_hat="matrix",
-                                      t="matrix"),
+                                      var_hat="matrix"),
                       
                          methods = list(
                            initialize = function(formula, data) {
@@ -42,10 +41,8 @@ linreg <- setRefClass("linreg",
                              #The variance of the regression coefficients:
                              var_hat <<- s2_hat*solve(t(X)%*%X)
                              
-                             #The t-values for each coefficient:
-                             t <<- b_hat/sqrt(diag(var_hat))
-                             
                            },
+                           
                            print = function(){
                              'Print the coeff that needed'
                              cat("Call:", "\n")
@@ -70,10 +67,26 @@ linreg <- setRefClass("linreg",
                                                 ,ylab = expression(sqrt(abs(paste(Standardized,phantom(ph),residuals))
                                                 )),xlab =titl)+ggplot2::geom_smooth(method = "lm")
                            return(list(p1,p2))},
-                           resid = function(){},
-                           pred = function(){},
-                           coef = function(){},
-                           summary = function(){}
+                           
+                           resid = function(){
+                             as.vector(e_hat)
+                           },
+                           
+                           pred = function(){
+                             as.vector(y_hat)
+                           },
+                           
+                           coef = function(){
+                             c <- as.vector(b_hat)
+                             names(c) <- colnames(X)
+                             return(c)
+                           },
+                           
+                           summary = function(){
+                             #The t-values for each coefficient:
+                             tv <- b_hat/sqrt(diag(var_hat))
+                             #p-values for each regression coefficient. 
+                           }
                          )
                          
 )
