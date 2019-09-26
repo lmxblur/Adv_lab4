@@ -23,7 +23,6 @@ linreg <- setRefClass("linreg",
                              X <<- model.matrix(formula,data)
                              y <<- as.matrix(data[all.vars(formula,data)[1]])
                              
-                             
                              #Regressions coefficients:
                              b_hat <<- solve(t(X)%*%X) %*% t(X) %*% y
                              names(b_hat) <<- colnames(X)
@@ -46,17 +45,16 @@ linreg <- setRefClass("linreg",
                              #The t-values for each coefficient:
                              t <<- b_hat/sqrt(diag(var_hat))
                              
-                           }
-                           ,
+                           },
                            print = function(){
                              'Print the coeff that needed'
                              cat("Call:", "\n")
-                             cat("linear(formula = ", all.vars(formula)[1], " ~ ", 
+                             cat("linreg(formula = ", all.vars(formula)[1], " ~ ", 
                                  all.vars(formula)[-1],
                                  ", data = ", dname,")", "\n\n", sep="")
                              cat("Coefficients:","\n")
-                             cat(format(labels(b_hat)[1], width=10, justify="right"), "\n")
-                             cat(format(round(b_hat,2), width=15, justify="right"))
+                             cat(format(labels(b_hat[,1]), width=10, justify="right"), "\n")
+                             cat(format(round(b_hat,2), width=17, justify="right"))
                              
                            },
                            plot = function(){},
