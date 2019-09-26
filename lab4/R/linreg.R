@@ -57,7 +57,19 @@ linreg <- setRefClass("linreg",
                              cat(format(round(b_hat,2), width=17, justify="right"))
                              
                            },
-                           plot = function(){},
+                           plot = function(){titlfi <- paste0('linreg(',all.vars(formula)[1], " ~ ", 
+                                                              all.vars(formula)[-1],")")
+                           titl <- paste('Fitted values',titlfi,sep = '\n')
+                           std <- sd(e_hat)
+                           yax_2 <- sqrt(abs(e_hat/std))
+                           ph <-'e'
+                           
+                           p1<-ggplot2::qplot(x = y_hat,y = e_hat,main='Residual vs Fitted'
+                                              ,ylab = 'Rediduals',xlab =titl)+ggplot2::geom_smooth(method = "lm")
+                           p2 <- ggplot2::qplot(x = y_hat,y = yax_2,main='Residual vs Fitted'
+                                                ,ylab = expression(sqrt(abs(paste(Standardized,phantom(ph),residuals))
+                                                )),xlab =titl)+ggplot2::geom_smooth(method = "lm")
+                           return(list(p1,p2))},
                            resid = function(){},
                            pred = function(){},
                            coef = function(){},
