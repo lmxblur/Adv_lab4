@@ -1,5 +1,4 @@
-linreg <- function(formula,data){
-  linreg1 <- setRefClass("linreg", 
+linreg <- setRefClass("linreg", 
                          fields =list(formula = 'formula',
                                       data = 'data.frame'
                          ),
@@ -22,6 +21,4 @@ linreg <- function(formula,data){
                            summary = function(){}
                          )
                          
-  )
-  return(linreg1)
-}
+)
