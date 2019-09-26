@@ -53,10 +53,10 @@ linreg <- setRefClass("linreg",
                              cat("Call:", "\n")
                              cat("linear(formula = ", all.vars(formula)[1], " ~ ", 
                                  all.vars(formula)[-1],
-                                 ", data = ", dname,")", "\n\n\n", sep="")
+                                 ", data = ", dname,")", "\n\n", sep="")
                              cat("Coefficients:","\n")
-                             cat(format(labels(b_hat), width=10, justify="right"), "\n")
-                             cat(format(round(b_hat,2), width=10, justify="right"))
+                             cat(format(labels(b_hat)[1], width=10, justify="right"), "\n")
+                             cat(format(round(b_hat,2), width=15, justify="right"))
                              
                            },
                            plot = function(){},
