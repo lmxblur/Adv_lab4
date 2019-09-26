@@ -7,10 +7,7 @@ linreg <- setRefClass("linreg",
                                       y="matrix",
                                       b_hat="matrix",
                                       y_hat="matrix",
-                                      e_hat="matrix",
-                                      df="numeric",
-                                      s2_hat="numeric",
-                                      var_hat="matrix"),
+                                      e_hat="matrix"),
                       
                          methods = list(
                            initialize = function(formula, data) {
@@ -31,15 +28,7 @@ linreg <- setRefClass("linreg",
                              
                              #The residuals:
                              e_hat <<- y-y_hat
-                             
-                             #The degrees of freedom:
-                             df <<- dim(X)[1]-length(b_hat)
-                             
-                             #The residual variance:
-                             s2_hat <<- as.numeric((t(e_hat)%*%e_hat)/df)
-                             
-                             #The variance of the regression coefficients:
-                             var_hat <<- s2_hat*solve(t(X)%*%X)
+
                              
                            },
                            
@@ -83,9 +72,32 @@ linreg <- setRefClass("linreg",
                            },
                            
                            summary = function(){
+                             #The degrees of freedom:
+                             df <- dim(X)[1]-length(b_hat)
+                             
+                             #The residual variance:
+                             s2_hat <- as.numeric((t(e_hat)%*%e_hat)/df)
+                             
+                             #The variance of the regression coefficients:
+                             var_hat <- as.vector(s2_hat)*solve(t(X)%*%X)
+                             
                              #The t-values for each coefficient:
                              tv <- b_hat/sqrt(diag(var_hat))
-                             #p-values for each regression coefficient. 
+                             
+                             #p-values for each regression coefficient.
+                             pv <- 2 * pt(tv, df, lower.tail = FALSE)
+                             
+                             cat("Coefficients:","\n")
+                             
+                             cmat <- cbind(round(as.numeric(b_hat),5), round(sqrt(diag(var_hat)),5))
+                             cmat <- cbind(cmat,round(tv,2))
+                             cmat <- cbind(cmat, pv)
+                             colnames(cmat) <- c("Estimate", "Std.Err", "t value", "Pr(>|t|)")
+                             rownames(cmat)<- colnames(X)
+                             printCoefmat(cmat)
+                             
+                             cat("\n", "Residuals standard error: ", round(sqrt(s2_hat),4),
+                                 " on ", df, " degrees of freedom.")
                            }
                          )
                          
