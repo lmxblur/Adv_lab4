@@ -46,7 +46,7 @@ linreg <- setRefClass("linreg",
                              'Print the coeff that needed'
                              cat("Call:", "\n")
                              cat("linreg(formula = ", all.vars(formula)[1], " ~ ", 
-                                 all.vars(formula)[-1],
+                                 paste(all.vars(formula)[-1], collapse = " + "),
                                  ", data = ", dname,")", "\n\n", sep="")
                              cat("Coefficients:","\n")
                              cat(format(labels(b_hat[,1]), width=10, justify="right"), "\n")
@@ -56,7 +56,7 @@ linreg <- setRefClass("linreg",
                            plot = function(){
                              'Plot the linear regression'
                              titlfi <- paste0('linreg(',all.vars(formula)[1], " ~ ", 
-                                                              all.vars(formula)[-1],")")
+                                              paste(all.vars(formula)[-1], collapse = " + "),")")
                            titl <- paste('Fitted values',titlfi,sep = '\n')
                            std <- sd(e_hat)
                            yax_2 <- sqrt(abs(e_hat/std))
