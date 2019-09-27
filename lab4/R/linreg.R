@@ -112,8 +112,8 @@ linreg <- setRefClass("linreg",
                              rownames(cmat)<- colnames(X)
                              printCoefmat(cmat)
                              cat("\n")
-                             cat("Residual standard error: ", round(sqrt(s2_hat),4),
-                                 " on ", df, " degrees of freedom.")
+                             cat("Residual standard error:", round(sqrt(s2_hat),4),
+                                 "on", df, "degrees of freedom.")
                            }
                          )
                          
