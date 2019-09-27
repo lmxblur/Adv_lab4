@@ -1,3 +1,13 @@
+#' A reference class to perform linear regression and return parameters and plots
+#' 
+#' @field formula Object dependent and indepedent variables
+#' @field data The data in data.frame format 
+#' @field dname Data name
+#' @field X Independent variable
+#' @field y Dependent variable
+#' @field b_hat Regression coefficient
+#' @field y_hat Fitted values
+#' @field e_hat Residuals
 linreg <- setRefClass("linreg", 
                       
                          fields =list(formula="formula", 
@@ -43,7 +53,9 @@ linreg <- setRefClass("linreg",
                              cat(format(round(b_hat,2), width=17, justify="right"))
                              
                            },
-                           plot = function(){titlfi <- paste0('linreg(',all.vars(formula)[1], " ~ ", 
+                           plot = function(){
+                             'Plot the linear regression'
+                             titlfi <- paste0('linreg(',all.vars(formula)[1], " ~ ", 
                                                               all.vars(formula)[-1],")")
                            titl <- paste('Fitted values',titlfi,sep = '\n')
                            std <- sd(e_hat)
@@ -58,20 +70,24 @@ linreg <- setRefClass("linreg",
                            return(list(p1,p2))},
                            
                            resid = function(){
+                             'Return the vector of residuals'
                              as.vector(e_hat)
                            },
                            
                            pred = function(){
+                             'Return the predicted values'
                              as.vector(y_hat)
                            },
                            
                            coef = function(){
+                             'Return the coefficient'
                              c <- as.vector(b_hat)
                              names(c) <- colnames(X)
                              return(c)
                            },
                            
                            summary = function(){
+                             'Summary of the linear regression'
                              #The degrees of freedom:
                              df <- dim(X)[1]-length(b_hat)
                              

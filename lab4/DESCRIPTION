@@ -6,4 +6,6 @@ Date: 2019-09-25
 Author: Who wrote it
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Description: More about what it does.
-License: MIT license
+License: MIT License+ file LICENSE
+Encoding: UTF-8
+RoxygenNote: 6.1.1
