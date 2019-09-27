@@ -9,6 +9,6 @@
 \packageDescription{lab4}
 }
 \details{
-
+This is the package that implement linear regression using RC class
 
 }
