@@ -101,7 +101,7 @@ linreg <- setRefClass("linreg",
                              tv <- b_hat/sqrt(diag(var_hat))
                              
                              #p-values for each regression coefficient.
-                             pv <- 2 * pt(tv, df, lower.tail = FALSE)
+                             pv <- 2 * pt(abs(tv), df, lower.tail = FALSE)
                              
                              cat("Coefficients:","\n")
                              
