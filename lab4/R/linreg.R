@@ -101,7 +101,7 @@ linreg <- setRefClass("linreg",
                              tv <- b_hat/sqrt(diag(var_hat))
                              
                              #p-values for each regression coefficient.
-                             pv <- 2 * pt(abs(tv), df, lower.tail = FALSE)
+                             pv <- 2 * pt(tv, df, lower.tail = FALSE)
                              
                              cat("Coefficients:","\n")
                              
@@ -112,7 +112,7 @@ linreg <- setRefClass("linreg",
                              rownames(cmat)<- colnames(X)
                              printCoefmat(cmat)
                              
-                             cat("\n", "Residuals standard error: ", round(sqrt(s2_hat),4),
+                             cat("\n", "Residual standard error: ", round(sqrt(s2_hat),4),
                                  " on ", df, " degrees of freedom.")
                            }
                          )
