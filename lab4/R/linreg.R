@@ -1,5 +1,7 @@
 #' A reference class to perform linear regression and return parameters and plots
 #' 
+#' @import ggplot2
+#' @import methods
 #' @field formula Object dependent and indepedent variables
 #' @field data The data in data.frame format 
 #' @field dname Data name
