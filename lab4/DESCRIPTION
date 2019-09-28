@@ -10,5 +10,5 @@ License: MIT License+ file LICENSE
 Encoding: UTF-8
 RoxygenNote: 6.1.1
 Suggests: testthat, knitr, rmarkdown
-Imports: ggplot2, methods
+Imports: ggplot2, methods, rmarkdown
 VignetteBuilder: knitr
