@@ -9,6 +9,6 @@ Description: RC class linear regression.
 License: MIT License+ file LICENSE
 Encoding: UTF-8
 RoxygenNote: 6.1.1
-Suggests: testthat, knitr, rmarkdown
+Suggests: testthat, knitr
 Imports: ggplot2, methods, rmarkdown
 VignetteBuilder: knitr
