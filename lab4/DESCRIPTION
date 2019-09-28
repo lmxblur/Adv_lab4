@@ -9,4 +9,5 @@ Description: More about what it does.
 License: MIT License+ file LICENSE
 Encoding: UTF-8
 RoxygenNote: 6.1.1
-Suggests: testthat, ggplot2, methods
+Suggests: testthat
+Imports: ggplot2, methods
