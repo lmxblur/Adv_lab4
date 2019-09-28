@@ -1,0 +1,30 @@
+---
+title: "linreg"
+author: "Mengxin Liu"
+date: "28/09/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{linreg}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Package lab4
+This is the package for the lab4 of the Advanced R programming course. This package performs the linear regression with two argument: formula and data. formula is the formula object indicating the dependent and independent variables.  
+
+## Methods inside pacakge
+print(): Print out the coefficient and  name of the coefficient of the linear regression.
+
+plot(): Plot the result of the linear regression.
+
+resid(): Return the vector of residual.
+
+pred(): Return the fitted value.
+
+coef(): Return the coefficient as a named vector.
+
+summary(): Print the summary of the linear regression.
