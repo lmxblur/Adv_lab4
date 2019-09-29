@@ -10,6 +10,8 @@
 #' @field b_hat matrix: Estimation of the regression coefficients.
 #' @field y_hat matrix: Estimation of the y values.
 #' @field e_hat matrix: Estimation of the error variable i.e. the residuals.
+#' @export linreg
+#' @exportClass linreg
 linreg <- setRefClass("linreg", 
                       
                          fields =list(formula="formula", 
