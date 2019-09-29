@@ -4,28 +4,28 @@
 \name{linreg-class}
 \alias{linreg-class}
 \alias{linreg}
-\title{A reference class to perform linear regression and return parameters and plots}
+\title{A reference class to perform linear regression and return parameters and plots.}
 \description{
-A reference class to perform linear regression and return parameters and plots
+A reference class to perform linear regression and return parameters and plots.
 }
 \section{Fields}{
 
 \describe{
-\item{\code{formula}}{Object dependent and indepedent variables}
+\item{\code{formula}}{formula: Object dependent and indepedent variables.}
 
-\item{\code{data}}{The data in data.frame format}
+\item{\code{data}}{data.frame: All the data.}
 
-\item{\code{dname}}{Data name}
+\item{\code{dname}}{vector: The names of the variables.}
 
-\item{\code{X}}{Independent variable}
+\item{\code{X}}{matrix: Independent variables.}
 
-\item{\code{y}}{Dependent variable}
+\item{\code{y}}{matrix: Dependent variable.}
 
-\item{\code{b_hat}}{Regression coefficient}
+\item{\code{b_hat}}{matrix: Estimation of the regression coefficients.}
 
-\item{\code{y_hat}}{Fitted values}
+\item{\code{y_hat}}{matrix: Estimation of the y values.}
 
-\item{\code{e_hat}}{Residuals}
+\item{\code{e_hat}}{matrix: Estimation of the error variable i.e. the residuals.}
 }}
 
 \section{Methods}{
