@@ -50,7 +50,7 @@ lr_model$print()
 lr_model$resid()
 ```
 
-### pred(): Return the predicted values $$\hat{y}$$.
+### pred(): Return the predicted values.
 
 ```{r eval=FALSE}
 lr_model$pred()
@@ -62,7 +62,7 @@ lr_model$pred()
 lr_model$coef()
 ```
 
-### summary(): Returns the coefficients with their standard error, t-value and p-value as well as the estimate of $$\hat{\sigma}$$ and the degrees of freedom of the model.
+### summary(): Returns the coefficients with their standard error, t-value and p-value as well as the estimate of residual variance and the degrees of freedom of the model.
 
 ```{r eval=FALSE}
 lr_model$summary()
