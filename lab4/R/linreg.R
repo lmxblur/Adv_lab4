@@ -1,15 +1,15 @@
-#' A reference class to perform linear regression and return parameters and plots
+#' A reference class to perform linear regression and return parameters and plots.
 #' 
 #' @import ggplot2
 #' @import methods
-#' @field formula Object dependent and indepedent variables
-#' @field data The data in data.frame format 
-#' @field dname Data name
-#' @field X Independent variable
-#' @field y Dependent variable
-#' @field b_hat Regression coefficient
-#' @field y_hat Fitted values
-#' @field e_hat Residuals
+#' @field formula formula: Object dependent and indepedent variables.
+#' @field data data.frame: All the data. 
+#' @field dname vector: The names of the variables.
+#' @field X matrix: Independent variables.
+#' @field y matrix: Dependent variable.
+#' @field b_hat matrix: Estimation of the regression coefficients.
+#' @field y_hat matrix: Estimation of the y values.
+#' @field e_hat matrix: Estimation of the error variable i.e. the residuals.
 linreg <- setRefClass("linreg", 
                       
                          fields =list(formula="formula", 

@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2019-09-25
 Author: Dimitriadis Spyridon, Mengxin Liu
 Maintainer: <spydi472@student.liu.se>
-Description: RC class linear regression.
+Description: This pachage creates a Reference Classe of linear regression.
 License: MIT License+ file LICENSE
 Encoding: UTF-8
 RoxygenNote: 6.1.1

@@ -1,6 +1,6 @@
 ---
 title: "linreg"
-author: "Mengxin Liu"
+author: "Group 19"
 date: "28/09/2019"
 output: rmarkdown::html_vignette
 vignette: >
@@ -16,15 +16,54 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Package lab4
 This is the package for the lab4 of the Advanced R programming course. This package performs the linear regression with two argument: formula and data. formula is the formula object indicating the dependent and independent variables.  
 
-## Methods inside pacakge
-print(): Print out the coefficient and  name of the coefficient of the linear regression.
+## Useage:
 
-plot(): Plot the result of the linear regression.
+```{r }
+# Install the library:
+devtools::install_github("lmxblur/Adv_lab4", subdir="lab4")
 
-resid(): Return the vector of residual.
+# Import a dataset
+data(iris)
 
-pred(): Return the fitted value.
+# Create an object
+lr_model <- linreg$new(formula = Petal.Length~Species, data = iris)
+```
 
-coef(): Return the coefficient as a named vector.
+## Methods inside the pacakge
 
-summary(): Print the summary of the linear regression.
+### print(): Print out the coefficient and  name of the coefficient of the linear regression.
+
+```{r }
+lr_model$print()
+```
+
+### plot(): Return two plots in a list. First the Residuals vs Fitted Values and second the Square of Standartized residuals vs Fitted values. .
+
+```{r }
+lr_model$print()
+```
+
+### resid(): Return the vector of residual.
+
+```{r }
+lr_model$resid()
+```
+
+### pred(): Return the predicted values yˆ.
+
+```{r }
+lr_model$pred()
+```
+
+### coef(): Return the coefficients as a named vector.
+
+```{r }
+lr_model$coef()
+```
+
+### summary(): Returns the coefficients with their standard error, t-value and p-value as well as the estimate of σˆ and the degrees of freedom of the model.
+
+```{r }
+lr_model$summary()
+```
+
