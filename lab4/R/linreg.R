@@ -12,6 +12,7 @@
 #' @field e_hat matrix: Estimation of the error variable i.e. the residuals.
 #' @export linreg
 #' @exportClass linreg
+library(ggplot2)
 linreg <- setRefClass("linreg", 
                       
                          fields =list(formula="formula", 
@@ -66,11 +67,8 @@ linreg <- setRefClass("linreg",
                            yax_2 <- sqrt(abs(e_hat/std))
                            ph <-'e'
                            
-                           p1<-ggplot2::qplot(x = y_hat,y = e_hat,main='Residual vs Fitted'
-                                              ,ylab = 'Rediduals',xlab =titl)+ggplot2::geom_smooth(method = "lm")
-                           p2 <- ggplot2::qplot(x = y_hat,y = yax_2,main='Residual vs Fitted'
-                                                ,ylab = expression(sqrt(abs(paste(Standardized,phantom(ph),residuals))
-                                                )),xlab =titl)+ggplot2::geom_smooth(method = "lm")
+                           p1 <- ggplot2::qplot(x = y_hat,y = e_hat,main='Residual vs Fitted',ylab = 'Rediduals',xlab =titl)+ggplot2::geom_smooth(method = "lm")+ggplot2::theme(plot.background = element_rect(fill = "#00cfb5"), panel.grid.major = element_line(colour = "#17c7d2"))#, axis.text = element_text(colour = "#687f91"))
+                           p2 <- ggplot2::qplot(x = y_hat,y = yax_2,main='Residual vs Fitted',ylab = expression(sqrt(abs(paste(Standardized,phantom(ph),residuals)))),xlab =titl)+ggplot2::geom_smooth(method = "lm")+ggplot2::theme(plot.background = element_rect(fill = "#00b9e7"), panel.grid.major = element_line(colour = "#17c7d2"))#, axis.text = element_text(colour = "#687f91"))
                            return(list(p1,p2))},
                            
                            resid = function(){

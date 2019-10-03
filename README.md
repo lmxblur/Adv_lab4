@@ -41,7 +41,7 @@ lr_model$print()
 ### plot(): Return two plots in a list. First the Residuals vs Fitted Values and second the Square of Standartized residuals vs Fitted values. .
 
 ```{r eval=FALSE}
-lr_model$print()
+lr_model$plot()
 ```
 
 ### resid(): Return the vector of residual.
