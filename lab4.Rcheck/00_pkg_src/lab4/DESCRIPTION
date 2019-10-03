@@ -1,0 +1,16 @@
+Package: lab4
+Type: Package
+Title: Linear Regression
+Version: 1.0
+Date: 2019-09-25
+Author: Dimitriadis Spyridon, Mengxin Liu
+Maintainer: <spydi472@student.liu.se>
+Description: This pachage creates a Reference Classe of linear regression.
+License: MIT License+ file LICENSE
+Encoding: UTF-8
+RoxygenNote: 6.1.1
+Suggests: testthat, knitr
+Imports: ggplot2, methods, rmarkdown
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2019-10-03 20:27:38 UTC; spiro

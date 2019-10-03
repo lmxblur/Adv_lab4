@@ -12,9 +12,7 @@
 #' @field e_hat matrix: Estimation of the error variable i.e. the residuals.
 #' @export linreg
 #' @exportClass linreg
-
 library(ggplot2)
-
 linreg <- setRefClass("linreg", 
                       
                          fields =list(formula="formula", 
